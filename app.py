@@ -150,7 +150,6 @@ class NFLBettingAnalytics:
             'Linear Regression': LinearRegression()
         }
     
-    @st.cache_data(ttl=3600)  # Cache for 1 hour
     def get_real_nfl_schedule(self, season=2025, week=None):
         """Fetch real NFL schedule data from ESPN API"""
         try:
@@ -293,7 +292,6 @@ class NFLBettingAnalytics:
         
         return pd.DataFrame(games)
     
-    @st.cache_data
     def generate_historical_data(self, team1, team2):
         """Generate mock historical data for analysis"""
         dates = pd.date_range(start='2020-01-01', end='2024-01-01', freq='W')
